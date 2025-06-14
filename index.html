@@ -11,11 +11,14 @@
 
 <body>
   <h1 class="heading">Zạch ra tìm lá</h1>
+  <h2>Countdown: <span id="countdown">90</span> seconds</h2>
   <div class="grid wide">
     <div class="game-board" id="gameBoard"></div>
   </div>
 
   <script>
+    //MAIN GAME
+
     // Danh sách ảnh (có thể dùng URL ngoài hoặc ảnh trong thư mục local /images/)
     const images = [
       './img/1.png',
@@ -72,12 +75,16 @@
               secondCard.classList.add('grayscale');
             }
             resetCards();
+            checkGameComplete();
+
           } else {
             // Sai → lật lại sau 1 giây
             setTimeout(() => {
               firstCard.classList.remove('flipped');
               secondCard.classList.remove('flipped');
               resetCards();
+              checkGameComplete();
+
             }, 1000);
           }
         }
@@ -89,6 +96,44 @@
     function resetCards() {
       [firstCard, secondCard] = [null, null];
       lockBoard = false;
+    }
+
+
+    function checkGameComplete() {
+      const allCards = document.querySelectorAll('.card');
+      const flippedCards = document.querySelectorAll('.card.flipped');
+
+      if (flippedCards.length === allCards.length) {
+        setTimeout(() => {
+          alert("Chúc mừng bạn đã hoàn thành thử thách !");         // Thông báo khi hoàn tất
+          location.reload();   // Reload lại trang
+        }, 500); // Đợi một chút cho hiệu ứng hoàn tất
+      }
+    }
+
+
+
+    // TIMER
+
+    let timeLeft = 90; // in seconds
+
+    const countdownElement = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      timeLeft--;
+
+      countdownElement.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(timer); // stop the timer
+        doSomething(); // call the function when timeout
+      }
+    }, 1000);
+
+    function doSomething() {
+      alert("Hết giờ ! Lá bay ờii. Bấm OK để chơi lại");
+      // You can replace this with any action
+      location.reload();
     }
   </script>
 </body>
