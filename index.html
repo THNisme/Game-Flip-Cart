@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zạch ra tìm lá</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f0f0f0;
+    }
+
+    h1 {
+      margin-top: 30px;
+    }
+
+    .game-board {
+      display: grid;
+      grid-template-columns: repeat(6, 200px);
+      gap: 10px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .card {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      perspective: 600px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s;
+      transform-style: preserve-3d;
+      position: relative;
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+    }
+
+    .card-front {
+      background: white;
+      transform: rotateY(180deg);
+    }
+
+    .card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .card-back {
+      background: url(./img/front.png);
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 36px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Zạch ra tìm lá</h1>
+  <div class="game-board" id="gameBoard"></div>
+
+  <script>
+    // Danh sách ảnh (có thể dùng URL ngoài hoặc ảnh trong thư mục local /images/)
+    const images = [
+      './img/1.png',
+      './img/2.png',
+      './img/3.png',
+      './img/4.png',
+      './img/5.png',
+      './img/6.png',
+      './img/7.png',
+      './img/8.png',
+      './img/9.png'
+    ];
+
+    const cards = [...images, ...images]; // Tạo cặp đôi
+    cards.sort(() => 0.5 - Math.random()); // Trộn
+
+    const board = document.getElementById('gameBoard');
+    let firstCard = null;
+    let secondCard = null;
+    let lockBoard = false;
+
+    cards.forEach((src, index) => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+
+      card.innerHTML = `
+        <div class="card-inner" data-image="${src}">
+          <div class="card-front">
+            <img src="${src}" alt="image">
+          </div>
+          <div class="card-back"></div>
+        </div>
+      `;
+
+      card.addEventListener('click', () => {
+        if (lockBoard) return;
+        if (card.classList.contains('flipped')) return;
+
+        card.classList.add('flipped');
+
+        if (!firstCard) {
+          firstCard = card;
+        } else {
+          secondCard = card;
+          lockBoard = true;
+
+          const firstImg = firstCard.querySelector('.card-inner').dataset.image;
+          const secondImg = secondCard.querySelector('.card-inner').dataset.image;
+
+          if (firstImg === secondImg) {
+            // Đúng → không lật lại
+            resetCards();
+          } else {
+            // Sai → lật lại sau 1 giây
+            setTimeout(() => {
+              firstCard.classList.remove('flipped');
+              secondCard.classList.remove('flipped');
+              resetCards();
+            }, 1000);
+          }
+        }
+      });
+
+      board.appendChild(card);
+    });
+
+    function resetCards() {
+      [firstCard, secondCard] = [null, null];
+      lockBoard = false;
+    }
+  </script>
+</body>
+</html>
