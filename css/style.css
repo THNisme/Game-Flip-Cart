@@ -70,3 +70,9 @@ body {
     .heading {
         color: #7e12b2;
     }
+
+    .grayscale {
+      filter: grayscale(0.9);
+    }
+
+    

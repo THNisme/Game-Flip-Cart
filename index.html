@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Zạch ra tìm lá</title>
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="./css/grid-library.css">
 
 </head>
+
 <body>
   <h1 class="heading">Zạch ra tìm lá</h1>
   <div class="grid wide">
@@ -65,6 +67,10 @@
 
           if (firstImg === secondImg) {
             // Đúng → không lật lại
+            if (card.classList.contains('flipped')) {
+              firstCard.classList.add('grayscale');
+              secondCard.classList.add('grayscale');
+            }
             resetCards();
           } else {
             // Sai → lật lại sau 1 giây
@@ -86,4 +92,5 @@
     }
   </script>
 </body>
+
 </html>
