@@ -3,80 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Zạch ra tìm lá</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      background: #f0f0f0;
-    }
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/grid-library.css">
 
-    h1 {
-      margin-top: 30px;
-    }
-
-    .game-board {
-      display: grid;
-      grid-template-columns: repeat(6, 200px);
-      gap: 10px;
-      justify-content: center;
-      margin-top: 30px;
-    }
-
-    .card {
-      width: 200px;
-      height: 200px;
-      position: relative;
-      perspective: 600px;
-      cursor: pointer;
-    }
-
-    .card-inner {
-      width: 100%;
-      height: 100%;
-      transition: transform 0.5s;
-      transform-style: preserve-3d;
-      position: relative;
-    }
-
-    .card.flipped .card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .card-front, .card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 10px;
-    }
-
-    .card-front {
-      background: white;
-      transform: rotateY(180deg);
-    }
-
-    .card-front img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .card-back {
-      background: url(./img/front.png);
-      background-position: center;
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-size: 36px;
-    }
-  </style>
 </head>
 <body>
-  <h1>Zạch ra tìm lá</h1>
-  <div class="game-board" id="gameBoard"></div>
+  <h1 class="heading">Zạch ra tìm lá</h1>
+  <div class="grid wide">
+    <div class="game-board" id="gameBoard"></div>
+  </div>
 
   <script>
     // Danh sách ảnh (có thể dùng URL ngoài hoặc ảnh trong thư mục local /images/)
