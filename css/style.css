@@ -1,7 +1,11 @@
 body {
       font-family: sans-serif;
       text-align: center;
-      background: #f0f0f0;
+      /* background: #f0f0f0; */
+      background-image: url(../img/bg3.png);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     h1 {
@@ -11,7 +15,7 @@ body {
     .game-board {
       display: grid;
       grid-template-columns: repeat(4, 150px);
-      gap: 10px;
+      gap: 12px;
       justify-content: center;
       margin-top: 30px;
     }
@@ -22,6 +26,8 @@ body {
       position: relative;
       perspective: 600px;
       cursor: pointer;
+      border: 2px solid #f0f0f0;
+      border-radius: 12px;
     }
 
     .card-inner {
@@ -68,16 +74,20 @@ body {
     }
 
     .heading {
-        color: #7e12b2;
+      color: #f0f0f0;
     }
 
     .grayscale {
       filter: grayscale(0.9);
     }
 
+    .hint {
+      color: #f0f0f0;
+    }
+
     .hint span {
       font-weight: bold;
-      color: #7e12b2;
+      color: yellow;
     }
 
     .box {
@@ -92,7 +102,7 @@ body {
     .reset-btn {
       padding: 10px 20px;
       margin-right: 10px;
-      background-color: #7e12b2;
+      background-color: red;
       color: #f0f0f0;
       font-weight: bold;
       border: 1px #333;
@@ -102,4 +112,8 @@ body {
 
     .reset-btn:active {
       opacity: 0.9;
+    }
+
+    .time {
+      color: #f0f0f0;
     }
