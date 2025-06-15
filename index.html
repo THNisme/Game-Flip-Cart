@@ -11,9 +11,10 @@
 
 <body>
   <h1 class="heading">Zạch ra tìm lá</h1>
-  <h2>Countdown: <span id="countdown">90</span> seconds</h2>
+  <h2>Countdown: <span id="countdown">60</span> seconds</h2>
   <div class="grid wide">
     <div class="game-board" id="gameBoard"></div>
+    <p class="hint"><span>Gợi ý:</span> Lật các hình giống nhau để hoàn thành thử thách</p>
   </div>
 
   <script>
@@ -27,9 +28,6 @@
       './img/4.png',
       './img/5.png',
       './img/6.png',
-      './img/7.png',
-      './img/8.png',
-      './img/9.png'
     ];
 
     const cards = [...images, ...images]; // Tạo cặp đôi
@@ -115,7 +113,7 @@
 
     // TIMER
 
-    let timeLeft = 90; // in seconds
+    let timeLeft = 60; // in seconds
 
     const countdownElement = document.getElementById("countdown");
 
