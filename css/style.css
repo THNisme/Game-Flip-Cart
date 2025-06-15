@@ -80,4 +80,23 @@ body {
       color: #7e12b2;
     }
 
-    
+    .box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .reset-btn {
+      padding: 10px 20px;
+      margin-right: 10px;
+      background-color: #7e12b2;
+      color: #f0f0f0;
+      font-weight: bold;
+      border: 1px #333;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .reset-btn:active {
+      opacity: 0.9;
+    }

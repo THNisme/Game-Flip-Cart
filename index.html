@@ -11,7 +11,13 @@
 
 <body>
   <h1 class="heading">Zạch ra tìm lá</h1>
-  <h2>Countdown: <span id="countdown">60</span> seconds</h2>
+  <div class="box">
+    <button class="reset-btn" onclick="location.reload();">Reset</button>
+    <h2>
+      Thời gian: <span id="countdown">60</span> giây
+    </h2>
+  </div>
+
   <div class="grid wide">
     <div class="game-board" id="gameBoard"></div>
     <p class="hint"><span>Gợi ý:</span> Lật các hình giống nhau để hoàn thành thử thách</p>
