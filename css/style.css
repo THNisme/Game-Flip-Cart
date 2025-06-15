@@ -117,3 +117,22 @@ body {
     .time {
       color: #f0f0f0;
     }
+
+
+    @media (min-width: 740px) { 
+      body {
+        height: 2000px;
+      }
+
+      .game-board {
+      grid-template-columns: repeat(3, 200px);
+      gap: 20px;
+    }
+
+    .card {
+      width: 200px;
+      height: 200px;
+    }
+
+
+    }
