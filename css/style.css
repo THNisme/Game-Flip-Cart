@@ -1,138 +1,142 @@
 body {
-      font-family: sans-serif;
-      text-align: center;
-      /* background: #f0f0f0; */
-      background-image: url(../img/bg3.png);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+  font-family: sans-serif;
+  text-align: center;
+  /* background: #f0f0f0; */
+  background-image: url(../img/bg3.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-    h1 {
-      margin-top: 30px;
-    }
+h1 {
+  margin-top: 30px;
+}
 
-    .game-board {
-      display: grid;
-      grid-template-columns: repeat(4, 150px);
-      gap: 12px;
-      justify-content: center;
-      margin-top: 30px;
-    }
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  gap: 12px;
+  justify-content: center;
+  margin-top: 30px;
+}
 
-    .card {
-      width: 150px;
-      height: 150px;
-      position: relative;
-      perspective: 600px;
-      cursor: pointer;
-      border: 2px solid #f0f0f0;
-      border-radius: 12px;
-    }
+.card {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  perspective: 600px;
+  cursor: pointer;
+  border: 2px solid #f0f0f0;
+  border-radius: 12px;
+}
 
-    .card-inner {
-      width: 100%;
-      height: 100%;
-      transition: transform 0.2s;
-      transform-style: preserve-3d;
-      position: relative;
-    }
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s;
+  transform-style: preserve-3d;
+  position: relative;
+}
 
-    .card.flipped .card-inner {
-      transform: rotateY(180deg);
-    }
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
 
-    .card-front, .card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 10px;
-    }
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
 
-    .card-front {
-      background: white;
-      transform: rotateY(180deg);
-    }
+.card-front {
+  background: white;
+  transform: rotateY(180deg);
+}
 
-    .card-front img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 10px;
-    }
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
 
-    .card-back {
-      background: url(../img/front.png);
-      background-position: center;
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-size: 36px;
-    }
+.card-back {
+  background: url(../img/front.png);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 36px;
+}
 
-    .heading {
-      color: #f0f0f0;
-    }
+.heading {
+  color: #f0f0f0;
+}
 
-    .grayscale {
-      filter: grayscale(0.9);
-    }
+.grayscale {
+  filter: grayscale(0.9);
+}
 
-    .hint {
-      color: #f0f0f0;
-    }
+.hint {
+  color: #f0f0f0;
+}
 
-    .hint span {
-      font-weight: bold;
-      color: yellow;
-    }
+.hint span {
+  font-weight: bold;
+  color: yellow;
+}
 
-    .box {
-      position: sticky;
-      top: 0;
-      z-index: 99999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.box {
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .reset-btn {
-      padding: 10px 20px;
-      margin-right: 10px;
-      background-color: red;
-      color: #f0f0f0;
-      font-weight: bold;
-      border: 1px #333;
-      border-radius: 20px;
-      cursor: pointer;
-    }
+.reset-btn {
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: red;
+  color: #f0f0f0;
+  font-weight: bold;
+  border: 1px #333;
+  border-radius: 20px;
+  cursor: pointer;
+}
 
-    .reset-btn:active {
-      opacity: 0.9;
-    }
+.reset-btn:active {
+  opacity: 0.9;
+}
 
-    .time {
-      color: #f0f0f0;
-    }
+.time {
+  color: #f0f0f0;
+}
 
+@media (max-width: 480px) {
+  .heading {
+  }
 
-    @media (min-width: 740px) { 
-      body {
-        height: 2000px;
-      }
+  .hint {
+    margin: 0 20px;
+  }
 
-      .game-board {
-      grid-template-columns: repeat(3, 200px);
-      gap: 20px;
-    }
+  .card {
+    width: 100px;
+    height: 100px;
+  }
 
-    .card {
-      width: 200px;
-      height: 200px;
-    }
-
-
-    }
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 12px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+}
